@@ -1,5 +1,5 @@
 import pytest
-from selene.support.shared import browser
+from selenium import webdriver
 
 @pytest.fixture()
 def chrome():
@@ -11,8 +11,7 @@ def open_browser(chrome):
 
 @pytest.fixture
 def browser_size():
-    browser.size.window_width = 1024
-    browser.size.window_height = 768
+    webdriver.set_window_size(1024, 768)
 
 def test_browser_size(open_browser, browser_size):
     pass
