@@ -3,7 +3,7 @@ from selenium import webdriver
 
 @pytest.fixture()
 def chrome():
-    pass
+    return 'https://google.com'
 
 @pytest.fixture()
 def open_browser(chrome):
