@@ -1,19 +1,11 @@
 import pytest
-from selenium import webdriver
-
-@pytest.fixture()
-def chrome():
-    browser.open('https://google.com')
-    yield
-    browser.quit()
-
-@pytest.fixture()
-def open_browser(chrome):
-    pass
+from selenium import browser
 
 @pytest.fixture
 def browser_size():
-    webdriver.set_window_size(1024, 768)
+    browser.config.window_width = 1024
+    browser.config.window_height = 768
+    browser.config.browser_name = 'Chrome'
 
-def test_browser_size(open_browser, browser_size):
-    pass
+    yield
+    browser.quit()
